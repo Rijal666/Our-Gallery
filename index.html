@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Love Gallery 💖</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="welcome" id="welcome">
+  <h2>✨ Welcome to Our Gallery ✨</h2>
+  <p>A place where our sweetest memories live</p>
+</div>
+
+
+  <div class="gallery" id="gallery"></div>
+
+<button onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" class="scrollTop" id="scrollTopBtn">⬆️ Ke Atas</button>
+
+
+    <footer>
+        <p>❤️ Made with love ❤️</p>
+    </footer>
+
+<div class="popup" id="popup">
+  <span class="close" onclick="closePopup()">&times;</span>
+  <img id="popupImg" src="" alt="preview">
+</div>
+
+  <script>
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      scrollBtn.classList.add("show");
+    } else {
+      scrollBtn.classList.remove("show");
+    }
+  });
+
+    setTimeout(() => {
+    document.getElementById('welcome').classList.add('fade-out');
+  }, 3000);
+
+  document.getElementById("popup").addEventListener("click", function(e) {
+    if (e.target.id === "popup") {
+      closePopup();
+    }
+  });
+
+
+
+    const photos = [
+      {
+        src: "assets/Photo1.jpeg",
+      },{
+        src: "assets/Photo2.jpeg",
+      },{
+        src: "assets/Photo3.jpeg",
+      },{
+        src: "assets/Photo4.jpeg",
+      },{
+        src: "assets/Photo5.jpeg",
+      },{
+        src: "assets/Photo6.jpeg",
+      },{
+        src: "assets/Photo11.jpeg",
+      },{
+        src: "assets/Photo8.jpeg",
+      },{
+        src: "assets/Photo9.jpeg",
+      },{
+        src: "assets/Photo10.jpeg",
+      }
+    ];
+
+    const gallery = document.getElementById("gallery");
+
+    photos.forEach(photo => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <img src="${photo.src}" alt="poto" onclick="openPopup('${photo.src}')">
+      `;
+      gallery.appendChild(card);
+    });
+
+    function openPopup(src) {
+    document.getElementById("popupImg").src = src;
+    document.getElementById("popup").style.display = "flex";
+  }
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+  </script>
+</body>
+</html>

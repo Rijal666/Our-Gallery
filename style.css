@@ -1,4 +1,4 @@
-body {
+  body {
   font-family: 'Comic Sans MS', cursive, sans-serif;
   background: #ffeef8;
   margin: 0;
@@ -53,18 +53,25 @@ h1 {
   left: 0;
   z-index: 999;
   width: 100vw;
-  height: 100vh;
+  height: 100vh;    
   background: rgba(0,0,0,0.7);
   display: none;
   justify-content: center;
   align-items: center;
+  padding: 5vh 5vw;
+  box-sizing: border-box;
+  overflow: auto;
 }
 
 .popup img {
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
   border-radius: 10px;
   box-shadow: 0 0 20px #fff;
+  object-fit: contain;
+  box-sizing: border-box;
 }
 
 .popup .close {
